@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS top_cast;
 
 -- create the movies table
 CREATE TABLE movies(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id INTEGER PRIMARY KEY,
   title TEXT,
   year_released INTEGER,
   MPAA_rating TEXT,
@@ -133,6 +133,7 @@ CREATE TABLE movies(
 -- create the top_cast table
 CREATE TABLE top_cast(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_id INTEGER,
   movie_title TEXT,
   actor INTEGER,
   character TEXT
@@ -146,21 +147,25 @@ CREATE TABLE top_cast(
 
 --Insert data into movies table
 INSERT INTO movies (
+    id,
     title, 
     year_released, 
     MPAA_rating, 
     studio
 ) VALUES (
+    1,
     "Batman Begins", 
     2005, 
     "PG-13", 
     "Warner Bros."),
 (
+    2,
     "The Dark Knight", 
     2008, 
     "PG-13", 
     "Warner Bros."),
 (
+    3,
     "The Dark Knight Rises", 
     2012, 
     "PG-13", 
@@ -169,23 +174,23 @@ INSERT INTO movies (
 
 -- Insert data into top_cast table
 INSERT INTO top_cast 
-(movie_title, actor, character
+(movie_id, movie_title, actor, character
 ) VALUES
-("Batman Begins", "Christian Bale", "Bruce Wayne"),
-("Batman Begins", "Michael Caine", "Alfred"),
-("Batman Begins", "Liam Neeson", "Ra's Al Ghul"),
-("Batman Begins", "Katie Holmes", "Rachel Dawes"),
-("Batman Begins", "Gary Oldman", "Commissioner Gordon"),
-("The Dark Knight", "Christian Bale", "Bruce Wayne"),
-("The Dark Knight", "Heath Ledger", "Joker"),
-("The Dark Knight", "Aaron Eckhart", "Harvey Dent"),
-("The Dark Knight", "Michael Caine", "Alfred"),
-("The Dark Knight", "Maggie Gyllenhaal", "Rachel Dawes"),
-("The Dark Knight Rises", "Christian Bale", "Bruce Wayne"),
-("The Dark Knight Rises", "Gary Oldman", "Commissioner Gordon"),
-("The Dark Knight Rises", "Tom Hardy", "Bane"),
-("The Dark Knight Rises", "Joseph Gordon-Levitt", "John Blake"),
-("The Dark Knight Rises", "Anne Hathaway", "Selina Kyle");
+(1, "Batman Begins", "Christian Bale", "Bruce Wayne"),
+(1, "Batman Begins", "Michael Caine", "Alfred"),
+(1, "Batman Begins", "Liam Neeson", "Ra's Al Ghul"),
+(1, "Batman Begins", "Katie Holmes", "Rachel Dawes"),
+(1, "Batman Begins", "Gary Oldman", "Commissioner Gordon"),
+(2, "The Dark Knight", "Christian Bale", "Bruce Wayne"),
+(2, "The Dark Knight", "Heath Ledger", "Joker"),
+(2, "The Dark Knight", "Aaron Eckhart", "Harvey Dent"),
+(2, "The Dark Knight", "Michael Caine", "Alfred"),
+(2, "The Dark Knight", "Maggie Gyllenhaal", "Rachel Dawes"),
+(3, "The Dark Knight Rises", "Christian Bale", "Bruce Wayne"),
+(3, "The Dark Knight Rises", "Gary Oldman", "Commissioner Gordon"),
+(3, "The Dark Knight Rises", "Tom Hardy", "Bane"),
+(3, "The Dark Knight Rises", "Joseph Gordon-Levitt", "John Blake"),
+(3, "The Dark Knight Rises", "Anne Hathaway", "Selina Kyle");
 
 -- Prints a header for the movies output
 .print "Movies"
